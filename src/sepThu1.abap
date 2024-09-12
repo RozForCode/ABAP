@@ -28,7 +28,7 @@ ENDIF
                                       *sy-subrc = 0: If the return code is 0, it means the function executed successfully, and the date is valid. It then outputs 'DATE OK'.
                                       *Else: If sy-subrc is not 0, it indicates an invalid date, and 'DATE INVALID' is written to the output.
 
-                   * for method program just replace function with method in the report statement
+                   *for method program just replace function with method in the report statement
 REPORT zst2date_check_method.                *This report uses object-oriented programming (OOP) techniques in ABAP
 CONSTANTS:
 *correct data type is sydatun
@@ -46,7 +46,7 @@ write:
 /'DATE INVALID'.
 ENDIF
 
-                    * Example of abap class and method creation
+                    *Example of abap class and method creation
 CLASS lhc DEFINITION.
   PUBLIC SECTION.
     METHODS: display_data.
