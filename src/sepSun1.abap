@@ -25,3 +25,39 @@
 
 * creating a small program that uses local class for its processing 
 
+REPORT z_add_two_numbers.
+
+* DEFINITION
+CLASS lcl_addition DEFINITION.
+ PUBLIC SECTION.
+  METHODS: add_two_numbers 
+    IMPORTING number1 TYPE i  " the IMPORTING keyword is used in method or function module definitions to define input parameters. 
+            number2 TYPE i 
+    RETURNING VALUE(sum) TYPE i 
+ENDCLASS.
+
+* IMPLEMENTATION
+CLASS lcl_addition IMPLEMENTATION.
+    METHOD add_two_numbers.
+        sum = number1+number2.
+    ENDMETHOD
+
+* start the main program logic
+START-OF-SELECTION.
+    DATA: obj TYPE REF TO lcl_addition,"all variables must be defined using the DATA keyword (or other related keywords like CONSTANTS, TYPES, etc.) before they can be used.
+         result TYPE i.
+    CREATE OBJECT obj.
+    * Parameters for user input
+    PARAMETERS: number1 TYPE i,
+                number2 TYPE i.
+    result = obj->add_two_numbers(number1=10 number2=20)
+    WRITE: / 'sum of 10 and 20 is:',result.
+
+* Here's the same code but with contructors where values to be added are members of the local class
+* review - execution starts with run , the contructor call executes rest of the program
+
+
+
+*Glocal class - using form-based interface, source-code based interface, configure visibility of components
+* 
+*review - executions started by run, all of the code is executed by run
